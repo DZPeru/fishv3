@@ -1,5 +1,6 @@
 import numpy as np
 import cv2 as cv
+from utils import yolo
 
 def runGrabCut(_image, boxes, indices):
     imgs = []
@@ -39,7 +40,7 @@ if __name__ == '__main__':
         help="threshold when applying non-maxima suppression")
     args = vars(ap.parse_args())
 
-    import yolo
+    
 
     img, boxes, idxs = yolo.runYOLOBoundingBoxes(args)
 

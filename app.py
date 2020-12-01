@@ -7,11 +7,11 @@ import streamlit as st
 
 
 def run():
-    yolopath = "./yolo-fish"
+    yolopath = "./truchav4"
     confidence = 0.25
     threshold = 0.45
 
-    st.title("fish YOLO + GrabCut demo")
+    st.title("Truchav4 demo")
 
     uploaded_img = st.file_uploader("Choose an image...", type=['png', 'jpg', 'bmp', 'jpeg'])
     if uploaded_img is not None:
