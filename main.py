@@ -5,14 +5,10 @@ import cv2 as cv
 from utils import yolo, GrabCut
 
 ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--image", required=True,
-    help="path to input image")
-ap.add_argument("-y", "--yolo", required=True,
-    help="base path to YOLO directory")
-ap.add_argument("-c", "--confidence", type=float, default=0.25,
-    help="minimum probability to filter weak detections")
-ap.add_argument("-t", "--threshold", type=float, default=0.45,
-    help="threshold when applying non-maxima suppression")
+ap.add_argument("-i", "--image", required=True, help="path to input image")
+ap.add_argument("-y", "--yolo", required=True, help="base path to YOLO directory")
+ap.add_argument("-c", "--confidence", type=float, default=0.25, help="minimum probability to filter weak detections")
+ap.add_argument("-t", "--threshold", type=float, default=0.45, help="threshold when applying non-maxima suppression")
 args = vars(ap.parse_args())
 
 img, boxes, idxs = yolo.runYOLOBoundingBoxes(args)

@@ -11,9 +11,9 @@ def run():
     confidence = 0.25
     threshold = 0.45
 
-    st.title("Truchav4 demo")
+    st.title("Truchav4 Demo 2020")
 
-    uploaded_img = st.file_uploader("Choose an image...", type=['png', 'jpg', 'bmp', 'jpeg'])
+    uploaded_img = st.file_uploader("Elige una imagen compatible", type=['png', 'jpg', 'bmp', 'jpeg'])
     if uploaded_img is not None:
         file_bytes = np.asarray(bytearray(uploaded_img.read()), dtype=np.uint8)
         image = cv.imdecode(file_bytes, 1)

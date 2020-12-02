@@ -12,7 +12,7 @@ $ conda activate truchav4
 $ pip install -r requirements.txt
 ```
 
-Then, use `gdown` to download the pretrained weights from [here](https://drive.google.com/file/d/1M8dKL0mjh5QkdH2UeFQN9RF3pXCV6hao/view?usp=sharing) and put it to `yolo-fish` directory:
+Then, use `gdown` to download the pretrained weights from [Google Drive](https://drive.google.com/file/d/1M8dKL0mjh5QkdH2UeFQN9RF3pXCV6hao/view?usp=sharing) and put it to `yolo-fish` directory:
 ```
 $ gdown --output ./yolo-fish/fish.weights --id 1M8dKL0mjh5QkdH2UeFQN9RF3pXCV6hao
 ```
