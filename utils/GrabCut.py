@@ -1,6 +1,6 @@
 import numpy as np
 import cv2 as cv
-from utils import yolo
+from utils import yolov3 as yolo
 
 def runGrabCut(_image, boxes, indices):
     imgs = []
@@ -30,17 +30,11 @@ def runGrabCut(_image, boxes, indices):
 if __name__ == '__main__':
     import argparse
     ap = argparse.ArgumentParser()
-    ap.add_argument("-i", "--image", required=True,
-        help="path to input image")
-    ap.add_argument("-y", "--yolo", required=True,
-        help="base path to YOLO directory")
-    ap.add_argument("-c", "--confidence", type=float, default=0.25,
-        help="minimum probability to filter weak detections")
-    ap.add_argument("-t", "--threshold", type=float, default=0.45,
-        help="threshold when applying non-maxima suppression")
+    ap.add_argument("-i", "--image", required=True, help="path to input image")
+    ap.add_argument("-y", "--yolo", required=True, help="base path to YOLO directory")
+    ap.add_argument("-c", "--confidence", type=float, default=0.25, help="minimum probability to filter weak detections")
+    ap.add_argument("-t", "--threshold", type=float, default=0.45, help="threshold when applying non-maxima suppression")
     args = vars(ap.parse_args())
-
-    
 
     img, boxes, idxs = yolo.runYOLOBoundingBoxes(args)
 
@@ -53,4 +47,3 @@ if __name__ == '__main__':
         cv.imshow("Image{}".format(i), images[i])
         cv.imwrite("grabcut{}.jpg".format(i), images[i])
     cv.waitKey(0)
-

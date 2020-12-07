@@ -1,17 +1,18 @@
 #!/usr/bin/python
 
 import cv2 as cv
-from utils import yolo, GrabCut
+from utils import yolov3 as yolo
+from utils import GrabCut
 import numpy as np
 import streamlit as st
 
 
 def run():
-    yolopath = "./truchav4"
-    confidence = 0.25
-    threshold = 0.45
+    yolopath = "./fishv3"
+    confidence = 0.30
+    threshold = 0.40
 
-    st.title("Truchav4 Demo 2020")
+    st.title("Fishv3 Demo 2020")
 
     uploaded_img = st.file_uploader("Elige una imagen compatible", type=['png', 'jpg', 'bmp', 'jpeg'])
     if uploaded_img is not None:

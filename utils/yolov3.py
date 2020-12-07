@@ -8,8 +8,8 @@ import os
 
 def runYOLODetection(args):
     # load my fish class labels that my YOLO model was trained on
-    labelsPath = os.path.sep.join([args["yolo"], "fish.names"])
-    #labelsPath = os.path.sep.join([args["yolo"], "coco.names"])
+    labelsPath = os.path.sep.join([args["fishv3"], "fish.names"])
+    #labelsPath = os.path.sep.join([args["fishv3"], "coco.names"])
     LABELS = open(labelsPath).read().strip().split("\n")
 
     # initialize a list of colors to represent each possible class label
@@ -20,10 +20,10 @@ def runYOLODetection(args):
     #COLORS = np.array([255, 0, 0], dtype="uint8")
 
     # derive the paths to the YOLO weights and model configuration
-    weightsPath = os.path.sep.join([args["yolo"], "fish.weights"])
-    configPath = os.path.sep.join([args["yolo"], "fish_test.cfg"])
-    #weightsPath = os.path.sep.join([args["yolo"], "yolov3.weights"])
-    #configPath = os.path.sep.join([args["yolo"], "yolov3.cfg"])
+    weightsPath = os.path.sep.join([args["fishv3"], "fish.weights"])
+    configPath = os.path.sep.join([args["fishv3"], "fish_test.cfg"])
+    #weightsPath = os.path.sep.join([args["fishv3"], "yolov3.weights"])
+    #configPath = os.path.sep.join([args["fishv3"], "yolov3.cfg"])
 
     # load my YOLO object detector trained on my fish dataset (1 class)
     print("[INFO] loading YOLO from disk ...")
@@ -113,8 +113,8 @@ def runYOLODetection(args):
 
 def runYOLOBoundingBoxes(args):
     # load my fish class labels that my YOLO model was trained on
-    labelsPath = os.path.sep.join([args["yolo"], "fish.names"])
-    #labelsPath = os.path.sep.join([args["yolo"], "coco.names"])
+    labelsPath = os.path.sep.join([args["fishv3"], "fish.names"])
+    #labelsPath = os.path.sep.join([args["fishv3"], "coco.names"])
     LABELS = open(labelsPath).read().strip().split("\n")
 
     # initialize a list of colors to represent each possible class label
@@ -125,10 +125,10 @@ def runYOLOBoundingBoxes(args):
     #COLORS = np.array([255, 0, 0], dtype="uint8")
 
     # derive the paths to the YOLO weights and model configuration
-    weightsPath = os.path.sep.join([args["yolo"], "fish.weights"])
-    configPath = os.path.sep.join([args["yolo"], "fish_test.cfg"])
-    #weightsPath = os.path.sep.join([args["yolo"], "yolov3.weights"])
-    #configPath = os.path.sep.join([args["yolo"], "yolov3.cfg"])
+    weightsPath = os.path.sep.join([args["fishv3"], "fish.weights"])
+    configPath = os.path.sep.join([args["fishv3"], "fish_test.cfg"])
+    #weightsPath = os.path.sep.join([args["fishv3"], "yolov3.weights"])
+    #configPath = os.path.sep.join([args["fishv3"], "yolov3.cfg"])
 
     # load my YOLO object detector trained on my fish dataset (1 class)
     print("[INFO] loading YOLO from disk ...")
@@ -290,14 +290,10 @@ def runYOLOBoundingBoxes_streamlit(image, yolopath, _confidence, _threshold):
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
-    ap.add_argument("-i", "--image", required=True,
-        help="path to input image")
-    ap.add_argument("-y", "--yolo", required=True,
-        help="base path to YOLO directory")
-    ap.add_argument("-c", "--confidence", type=float, default=0.25,
-        help="minimum probability to filter weak detections")
-    ap.add_argument("-t", "--threshold", type=float, default=0.45,
-        help="threshold when applying non-maxima suppression")
+    ap.add_argument("-i", "--image", required=True, help="path to input image")
+    ap.add_argument("-y", "--yolo", required=True, help="base path to YOLO directory")
+    ap.add_argument("-c", "--confidence", type=float, default=0.25, help="minimum probability to filter weak detections")
+    ap.add_argument("-t", "--threshold", type=float, default=0.45, help="threshold when applying non-maxima suppression")
     args = vars(ap.parse_args())
 
     image = runYOLODetection(args)
