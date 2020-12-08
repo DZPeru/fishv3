@@ -6,7 +6,7 @@ Fish detection and segmentation based on YOLOv3 that use GrabCut to do semantic 
 
 ## Web version
 
-You can try clicking (here)[https://fishv3.herokuapp.com/] or (here)[https://fish-yolo-grabcut.herokuapp.com/]
+You can try clicking [here](https://fishv3.herokuapp.com/)
 
 # Run locally
 

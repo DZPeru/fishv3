@@ -44,10 +44,10 @@ RUN pip3 install -r requirements.txt
 COPY . .
 
 # set heroku_startup.sh to be executable
-RUN chmod +x ./heroku_startup.sh
+#RUN chmod +x ./heroku_startup.sh
 
 # download YOLO weights
-RUN gdown --output ./fishv3/fish.weights --id 1M8dKL0mjh5QkdH2UeFQN9RF3pXCV6hao 
+RUN gdown --id 1M8dKL0mjh5QkdH2UeFQN9RF3pXCV6hao --output ./fishv3/fish.weights
 
 # launch streamlit app
 CMD streamlit run --server.enableCORS false --server.port $PORT app.py
