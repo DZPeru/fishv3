@@ -13,6 +13,8 @@ def run():
     threshold = 0.40
 
     st.title("Fishv3 Demo 2020")
+    st.text("Repo from: https://fishv3.herokuapp.com/")
+    st.text("More info: https://github.com/DZPeru/fishv3")
 
     uploaded_img = st.file_uploader("Elige una imagen compatible", type=['png', 'jpg', 'bmp', 'jpeg'])
     if uploaded_img is not None:
@@ -23,6 +25,10 @@ def run():
         st.image(image, caption='Uploaded Image', channels="BGR", use_column_width=True)
 
         boxes, idxs = yolo.runYOLOBoundingBoxes_streamlit(image, yolopath, confidence, threshold)
+        st.write(pd.DataFrame.from_dict({'confidence' : [confidence],
+                                        'threshold' : [threshold],
+                                        'Boxes': [len(boxes)],
+                                        'idxs': [len(idxs)],}))
         result_images = GrabCut.runGrabCut(image, boxes, idxs)
 
         st.write("")
