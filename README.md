@@ -30,12 +30,12 @@ $ pip install -r requirements.txt
 Download the weights of the neural network to your local repository. Or do it manually, downloading from [Google Drive](https://drive.google.com/file/d/1M8dKL0mjh5QkdH2UeFQN9RF3pXCV6hao/view?usp=sharing).
 
 ```
-$ gdown --output ./yolo-fish/fish.weights --id 1M8dKL0mjh5QkdH2UeFQN9RF3pXCV6hao
+$ gdown --output ./fishv3/fish.weights --id 1M8dKL0mjh5QkdH2UeFQN9RF3pXCV6hao
 ```
 
 ### 1. Command Line Approach
 ```
-$ python main.py --image ./images/DSC_0061.JPG --yolo yolo-fish
+$ python main.py --image ./images/DSC_0061.JPG --yolo fishv3
 ```
 
 When finishing, you should find 8 jpg images in the project root directory.
