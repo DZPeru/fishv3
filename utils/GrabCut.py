@@ -4,7 +4,7 @@ from utils import yolov3 as yolo
 
 def runGrabCut(_image, boxes, indices):
     imgs = []
-
+    
     # ensure at least one detection exists
     if len(indices) > 0:
         # loop over the indices we are keeping
@@ -18,7 +18,7 @@ def runGrabCut(_image, boxes, indices):
             print(rect)
 
             # apply GrabCut
-            cv.grabCut(image, mask, rect, bgdModel, fgbModel, 5, cv.GC_INIT_WITH_RECT)
+            cv.grabCut(image, mask, rect, bgdModel, fgbModel, 10, cv.GC_INIT_WITH_RECT)
 
             mask2 = np.where((mask == 2) | (mask == 0), 0, 1).astype('uint8')
             image = image * mask2[:, :, np.newaxis]

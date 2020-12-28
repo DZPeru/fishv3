@@ -132,5 +132,8 @@ dmypy.json
 *.weights
 
 # ignore JPG images except of example image
-*.jpg
-!七星斑.jpg
+#*.jpg
+#!七星斑.jpg
+
+# VSCODE
+.vscode/

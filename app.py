@@ -1,19 +1,21 @@
 #!/usr/bin/python
 
 import cv2 as cv
+import numpy as np
+import pandas as pd
+import streamlit as st
+
 from utils import yolov3 as yolo
 from utils import GrabCut
-import numpy as np
-import streamlit as st
-import pandas as pd
+from utils.draw_rectangles import draw_rectangles
 
 
 def run():
     yolopath = "./fishv3"
-    confidence = 0.30
-    threshold = 0.40
-
-    st.title("Fishv3 Demo 2020")
+    confidence = 0.40
+    threshold = 0.45
+    
+    st.title("fishv3[tiny] Demo 2020")
     st.text("Repo from: https://fishv3.herokuapp.com/")
     st.text("More info: https://github.com/DZPeru/fishv3")
 
@@ -28,9 +30,13 @@ def run():
         boxes, idxs = yolo.runYOLOBoundingBoxes_streamlit(image, yolopath, confidence, threshold)
         st.write(pd.DataFrame.from_dict({'confidence' : [confidence],
                                         'threshold' : [threshold],
-                                        'Boxes': [len(boxes)],
-                                        'idxs': [len(idxs)],}))
+                                        'Encontrados (Boxes)': [len(boxes)],
+                                        'Válidos (idxs)': [len(idxs)],}))
         result_images = GrabCut.runGrabCut(image, boxes, idxs)
+
+        st.write("Here appears the rectangles that the algorithm recognize:")
+        img_mod=draw_rectangles(image,boxes,idxs)
+        st.image(img_mod, channels="BGR", use_column_width=True)
 
         st.write("")
         st.write("finish grabcut")
