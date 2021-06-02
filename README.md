@@ -14,12 +14,12 @@ You can try clicking [here](https://fishv3.herokuapp.com/)
 ## Docker version
 
 To downloand the image and run the contaider in detach mode, run the code below.
-```
+```bash
 docker container run -p 8501:8501 --rm -d pablogod/fishv3
 ```
 
 To shutdown the docker type this:
-```
+```bash
 docker kill <weird id of fishv3> # Type the id
 ```
 
@@ -27,7 +27,7 @@ docker kill <weird id of fishv3> # Type the id
 
 Locally:
 
-```
+```bash
 git clone https://github.com/DZPeru/fishv3
 cd fishv3
 pip3 install -r requirements.txt
@@ -35,7 +35,7 @@ pip3 install -r requirements.txt
 ## Conda version
 
 Conda:
-```
+```bash
 conda create -n fishv3 python=3.6 pip 
 conda activate fishv3
 pip install -r requirements.txt
@@ -43,19 +43,19 @@ pip install -r requirements.txt
 
 Download the weights of the neural network to your local repository. Or do it manually, downloading from [Google Drive](https://drive.google.com/file/d/1qmOsvx-XplKlECKRy2t6auW1iAAJx2-w/view?usp=sharing).
 
-```
-$ gdown --output ./fishv3/fish.weights --id 1M8dKL0mjh5QkdH2UeFQN9RF3pXCV6hao
+```bash
+gdown --output ./fishv3/fish.weights --id 1M8dKL0mjh5QkdH2UeFQN9RF3pXCV6hao
 ```
 
 ### 1. Command Line Approach
-```
+```bash
 python main.py --image ./path_to/my_image.jpg --yolo  fishv3
 ```
 
 When finishing, you should find images (.jpg) in the project root directory.
 
 ### 2. Streamlit Approach
-```
+```bash
 streamlit run app.py
 ```
 
@@ -67,11 +67,11 @@ The results are shown in the browser (make sure to scroll down).
 ## Docker version
 
 To downloand the image and run the contaider in detach mode, run the code below.
-```
+```bash
 $ docker container run -p 8501:8501 --rm -d pablogod/fishv3
 ```
 
 To shutdown the docker type this:
-```
+```bash
 $ docker kill <weird id of fishv3.app>
 ```
